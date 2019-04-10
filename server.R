@@ -11,6 +11,7 @@ library(shiny)
 
 # Define server logic 
 shinyServer(function(input, output) {
-   
-  
+  output$player2 = renderUI({
+    selectInput(inputId="player2", label="Player 2", choices=as.character(Players[Players != input$player1]), selected = NULL, multiple = FALSE)
+  })
 })

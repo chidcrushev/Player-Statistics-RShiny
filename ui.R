@@ -8,15 +8,19 @@
 #
 
 library(shiny)
+library(shinydashboard)
 source("s4-BasketballData.R")
+source("sideBar.R")
+source("body.R")
 # Define UI for application
-#Need to remove the initial selected value
 shinyUI(fluidPage(
-  
-  # Application title
-  titlePanel("BasketBall Statistics"),
-  selectInput(inputId="player1", label="Player 1", choices=as.character(Players), selected = NULL, multiple = FALSE),
-  
-  selectInput(inputId="player2", label="Player 2", choices=as.character(Players), selected = NULL, multiple = FALSE)
-  
+ 
+  dashboardPage(
+    skin='blue',
+    dashboardHeader(title = "Players"),
+    sidebar = sideBar,
+    body = body
+    
+  )
 ))
+  
